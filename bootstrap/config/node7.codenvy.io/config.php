@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file is from Slimworks and developed by Cyberbyte Studios
+ */
 
 // read  credentials from dev_secrets.json
 $creds = json_decode(file_get_contents(INC_ROOT . '/secrets/dev_secrets.json'), true);
