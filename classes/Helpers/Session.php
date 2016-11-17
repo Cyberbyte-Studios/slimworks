@@ -45,7 +45,7 @@ class Session implements SessionInterface
         }
     }
 
-    public function isSet($variable)
+    public function exists($variable)
     {
         if (isset($this->$variable)) {
             return true;
@@ -55,7 +55,7 @@ class Session implements SessionInterface
 
     public function get($variable)
     {
-        if ($this->isSet($variable)) {
+        if ($this->exists($variable)) {
             return $this->$variable;
         }
         return null;
@@ -67,7 +67,7 @@ class Session implements SessionInterface
         $_SESSION[$variable] = $value;
     }
 
-    public function unSet($variable)
+    public function remove($variable)
     {
         if (isset($this->$variable)) {
             unset($_SESSION[$variable]);
@@ -76,7 +76,7 @@ class Session implements SessionInterface
         return false;
     }
 
-    public function regenerate_id()
+    public function regenerate()
     {
         session_regenerate_id(true);
     }

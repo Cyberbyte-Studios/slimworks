@@ -57,7 +57,7 @@ class App extends \DI\Bridge\Slim\App
 
         $this->session = new Session;
 
-        if (!$this->session->isset('csrfToken')) {
+        if (!$this->session->exists('csrfToken')) {
             $this->session->set('csrfToken', password_hash(time(), PASSWORD_BCRYPT));
         }
 

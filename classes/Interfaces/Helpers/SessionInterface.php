@@ -20,5 +20,17 @@ namespace App\Interfaces\Helpers;
  */
 interface SessionInterface
 {
-    //
+    public function __construct();
+
+    public function exists($variable);
+
+    public function get($variable);
+
+    public function set($variable, $value = null);
+
+    public function remove($variable);
+
+    public function regenerate();
+
+    public function destroy();
 }
