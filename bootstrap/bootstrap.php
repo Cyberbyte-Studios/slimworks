@@ -65,7 +65,7 @@ $configPath = file_get_contents(INC_ROOT . '/mode.php') . '.php';
 
 
 
-$config = new Noodlehaus\Config([
+$config = new Cyberworks\Config([
     INC_ROOT . '/bootstrap/config/' . $configPath,
 ]);
 

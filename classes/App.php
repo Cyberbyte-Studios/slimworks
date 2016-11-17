@@ -10,7 +10,7 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace App;
+namespace Cyberworks;
 
 use DI\ContainerBuilder;
 use Interop\Container\ContainerInterface;
@@ -18,7 +18,7 @@ use Carbon\Carbon;
 use App\Interfaces\ViewInterface;
 use App\View;
 use Slim\Views\TwigExtension;
-use Noodlehaus\ConfigInterface;
+use Cyberworks\ConfigInterface;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Processor\UidProcessor;
@@ -39,7 +39,7 @@ use App\Database\CapsuleDatabase;
 /**
  * App
  *
- * @param Noodlehaus\ConfigInterface    $config
+ * @param Cyberworks\ConfigInterface    $config
  * @param integer                       $authId     taken from $_SESSION[user_id]
  * @param integer                       $csrfToken  taken from $_SESSION[csrfToken]
  *

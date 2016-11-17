@@ -6,7 +6,7 @@
  * @copyright Copyright (c) 2011-2016 Josh Lockhart
  * @license   https://github.com/slimphp/Slim/blob/3.x/LICENSE.md MIT
  */
-namespace App\Handlers;
+namespace Cyberworks\Handlers;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;

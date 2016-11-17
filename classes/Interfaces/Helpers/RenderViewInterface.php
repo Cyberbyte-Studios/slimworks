@@ -10,7 +10,7 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace App\Interfaces\Helpers;
+namespace Cyberworks\Interfaces\Helpers;
 
 /**
  * RenderViewInterface

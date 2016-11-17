@@ -10,7 +10,7 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace App\Helpers;
+namespace Cyberworks\Helpers;
 
 use Slim\Flash\Messages;
 use App\Interfaces\Helpers\FlashInterface;

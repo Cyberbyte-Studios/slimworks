@@ -10,15 +10,15 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace App\Helpers;
+namespace Cyberworks\Helpers;
 
 use App\Interfaces\Helpers\SessionInterface;
-use Noodlehaus\ConfigInterface;
+use Cyberworks\ConfigInterface;
 
 /**
  * Session
  *
- * @param Noodlehaus\ConfigInterface $config
+ * @param Cyberworks\ConfigInterface $config
  *
  */
 class Session implements SessionInterface
