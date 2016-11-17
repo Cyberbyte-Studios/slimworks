@@ -30,18 +30,17 @@ return [
         'tmp' => '/tmp',
         'timezone' => 'Europe/London',
     ],
-    'db' => [
+    'armaDb' => [
+        'driver' => 'mysql',
+        'dsn' => $creds['ARMADB']['dsn'],
+        'user' => $creds['ARMADB']['user'],
+        'password' => $creds['ARMADB']['password'],
+    ],
+    'appDb' => [
         'driver' => 'sqlite',
-        'host' => $creds['MYSQL']['HOST'],
-        'database' => INC_ROOT . '/db/db.sqlite3',
-        'username' => $creds['MYSQL']['USER'],
-        'password' => $creds['MYSQL']['PASSWORD'],
-        'port' => $creds['MYSQL']['PORT'],
-        'tunnel' => $creds['MYSQL']['TUNNEL'],
-        'charset' => 'utf8mb4',
-        'collation' => 'utf8mb4_unicode_ci',
-        'prefix' => '',
-        'stored_procedures' => false,
+        'dsn' => $creds['APPDB']['dsn'],
+        'user' => $creds['APPDB']['user'],
+        'password' => $creds['APPDB']['password'],
     ],
     'twig' => [
         'path' => '../resources/views/html',

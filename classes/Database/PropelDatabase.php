@@ -5,16 +5,11 @@
 
 namespace Slimworks\Database;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use PDO;
+use Propel\Runtime\Propel;
 use Slimworks\Interfaces\Database\DatabaseInterface;
 
-/**
- * CapsuleDatabase
- *
- * For PHP-DI Autowiring
- *
- */
-class CapsuleDatabase extends Capsule implements DatabaseInterface
+class PropelDatabase extends Propel implements DatabaseInterface
 {
     //
 }

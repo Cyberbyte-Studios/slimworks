@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_DATABASE: "armalife"
+      MYSQL_USER: "armalife"
+      MYSQL_PASSWORD: "armalife"
+      MYSQL_ROOT_PASSWORD: "armalife"
+    volumes:
+      - data:/var/lib/mysql
+
+volumes:
+  data:
+    driver: local

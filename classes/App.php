@@ -7,9 +7,8 @@ namespace Slimworks;
 
 use DI\ContainerBuilder;
 use Interop\Container\ContainerInterface;
-use Carbon\Carbon;
+use Slimworks\Database\PropelDatabase;
 use Slimworks\Interfaces\ViewInterface;
-use Slimworks\View;
 use Slim\Views\TwigExtension;
 use Noodlehaus\ConfigInterface;
 use Psr\Log\LoggerInterface;
@@ -21,13 +20,10 @@ use Slimworks\Helpers\Flash;
 use Slimworks\Interfaces\Helpers\SessionInterface;
 use Slimworks\Helpers\Session;
 use Slimworks\Interfaces\Auth\CsrfGuardInterface;
-use Slimworks\Auth\CsrfGuard;
 use Slimworks\Handlers\ErrorCustom;
 use Slimworks\Handlers\NotFoundCustom;
 use Slim\Interfaces\RouterInterface;
-use Slim\Exception\NotFoundException;
 use Slimworks\Interfaces\Database\DatabaseInterface;
-use Slimworks\Database\CapsuleDatabase;
 
 /**
  * App
@@ -173,9 +169,14 @@ class App extends \DI\Bridge\Slim\App
             'flash' => \DI\get(FlashInterface::class),
 
             DatabaseInterface::class => function () {
-                return new CapsuleDatabase();
+                return new PropelDatabase();
             },
-            'db' => \DI\get(DatabaseInterface::class),
+            'appDb' => \DI\get(DatabaseInterface::class),
+
+            DatabaseInterface::class => function () {
+                return new PropelDatabase();
+            },
+            'armaDb' => \DI\get(DatabaseInterface::class),
 
             ConfigInterface::class => function () {
                 return $this->config;
@@ -189,7 +190,7 @@ class App extends \DI\Bridge\Slim\App
 
             CsrfGuardInterface::class => function () {
                 $null = null;
-                return new \App\Auth\CsrfGuard('csrf',
+                return new \Slimworks\Auth\CsrfGuard('csrf',
                     $null,
                     function ($request, $response, $next) {
                         $route = $request->getUri()->getPath();
