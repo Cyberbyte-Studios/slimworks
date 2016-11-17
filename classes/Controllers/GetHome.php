@@ -39,14 +39,14 @@ class GetHome
         /* get input */
 
         /* do action */
-        $user = $db->table('users')->first();
-        $username = $user->username;
-
-        $flash->addMessage('global', 'This is a flash message.');
-
+//        $user = $db->table('users')->first();
+//        $username = $user->username;
+//
+//        $flash->addMessage('global', 'This is a flash message.');
+//
         /* route away */
         return new RenderView($request, $response, $view, 'home', [
-            'someParam' => $username . ' was returned from the db.',
+            'someParam' => 'nothing was returned from the db.',
         ]);
     }
 }
