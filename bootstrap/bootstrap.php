@@ -63,11 +63,11 @@ $config = new Noodlehaus\Config([
 ]);
 
 date_default_timezone_set($config->get('app.timezone'));
-//if (extension_loaded('intl')) {
-//    Locale::setDefault('gb-GB');
-//} else {
-//    die ('intl extension needs to be installed!');
-//}
+if (extension_loaded('intl')) {
+    Locale::setDefault('gb-GB');
+} else {
+    die('intl extension needs to be installed!');
+}
 
 $app = new App($config);
 
@@ -80,7 +80,7 @@ $app
     ->add(new CsrfGuardMiddleware(
         $container->get('csrf'),
         $container->get('view')
-        ))
+    ))
     ->add($container->get('csrf'))
     ->add(new TrailingSlash(false))
 ;
