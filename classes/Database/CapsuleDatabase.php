@@ -10,10 +10,10 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace Cyberworks\Database;
+namespace Slimworks\Database;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use App\Interfaces\Database\DatabaseInterface;
+use Slimworks\Interfaces\Database\DatabaseInterface;
 
 /**
  * CapsuleDatabase

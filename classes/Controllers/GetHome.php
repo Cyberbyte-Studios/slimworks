@@ -10,17 +10,17 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace Cyberworks\Controllers;
+namespace Slimworks\Controllers;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 // use Slim\Interfaces\RouterInterface as Router;
-use App\Interfaces\ViewInterface as View;
-use App\Helpers\RenderView;
-// use Cyberworks\ConfigInterface as Config;
-// use App\Interfaces\Helpers\SessionInterface as Session;
-use App\Interfaces\Database\DatabaseInterface as DB;
-use App\Interfaces\Helpers\FlashInterface as Flash;
+use Slimworks\Interfaces\ViewInterface as View;
+use Slimworks\Helpers\RenderView;
+// use Noodlehaus\ConfigInterface as Config;
+// use Slimworks\Interfaces\Helpers\SessionInterface as Session;
+use Slimworks\Interfaces\Database\DatabaseInterface as DB;
+use Slimworks\Interfaces\Helpers\FlashInterface as Flash;
 // use Psr\Log\LoggerInterface as Logger;
 
 /**

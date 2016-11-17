@@ -10,36 +10,36 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace Cyberworks;
+namespace Slimworks;
 
 use DI\ContainerBuilder;
 use Interop\Container\ContainerInterface;
 use Carbon\Carbon;
-use App\Interfaces\ViewInterface;
-use App\View;
+use Slimworks\Interfaces\ViewInterface;
+use Slimworks\View;
 use Slim\Views\TwigExtension;
-use Cyberworks\ConfigInterface;
+use Noodlehaus\ConfigInterface;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Processor\UidProcessor;
 use Monolog\Handler\StreamHandler;
-use App\Interfaces\Helpers\FlashInterface;
-use App\Helpers\Flash;
-use App\Interfaces\Helpers\SessionInterface;
-use App\Helpers\Session;
-use App\Interfaces\Auth\CsrfGuardInterface;
-use App\Auth\CsrfGuard;
-use App\Handlers\ErrorCustom;
-use App\Handlers\NotFoundCustom;
+use Slimworks\Interfaces\Helpers\FlashInterface;
+use Slimworks\Helpers\Flash;
+use Slimworks\Interfaces\Helpers\SessionInterface;
+use Slimworks\Helpers\Session;
+use Slimworks\Interfaces\Auth\CsrfGuardInterface;
+use Slimworks\Auth\CsrfGuard;
+use Slimworks\Handlers\ErrorCustom;
+use Slimworks\Handlers\NotFoundCustom;
 use Slim\Interfaces\RouterInterface;
 use Slim\Exception\NotFoundException;
-use App\Interfaces\Database\DatabaseInterface;
-use App\Database\CapsuleDatabase;
+use Slimworks\Interfaces\Database\DatabaseInterface;
+use Slimworks\Database\CapsuleDatabase;
 
 /**
  * App
  *
- * @param Cyberworks\ConfigInterface    $config
+ * @param Noodlehaus\ConfigInterface    $config
  * @param integer                       $authId     taken from $_SESSION[user_id]
  * @param integer                       $csrfToken  taken from $_SESSION[csrfToken]
  *

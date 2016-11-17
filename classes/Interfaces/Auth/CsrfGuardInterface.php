@@ -10,7 +10,7 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace Cyberworks\Interfaces\Auth;
+namespace Slimworks\Interfaces\Auth;
 
 /**
  * CsrfGuardInterface

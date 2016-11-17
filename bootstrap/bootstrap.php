@@ -10,8 +10,8 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-use App\App;
-use App\Middleware\CsrfGuardMiddleware;
+use Slimworks\App;
+use Slimworks\Middleware\CsrfGuardMiddleware;
 use Psr7Middlewares\Middleware\TrailingSlash;
 
 error_reporting(0);
@@ -65,7 +65,7 @@ $configPath = file_get_contents(INC_ROOT . '/mode.php') . '.php';
 
 
 
-$config = new Cyberworks\Config([
+$config = new Noodlehaus\Config([
     INC_ROOT . '/bootstrap/config/' . $configPath,
 ]);
 

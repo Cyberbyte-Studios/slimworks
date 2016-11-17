@@ -10,10 +10,10 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace Cyberworks;
+namespace Slimworks;
 
 use Slim\Views\Twig;
-use App\Interfaces\ViewInterface;
+use Slimworks\Interfaces\ViewInterface;
 
 /**
  * View

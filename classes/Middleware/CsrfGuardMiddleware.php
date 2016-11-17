@@ -10,13 +10,13 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace Cyberworks\Middleware;
+namespace Slimworks\Middleware;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use App\Interfaces\Auth\CsrfGuardInterface as Csrf;
-use App\Auth\CsrfGuard;
-use App\Interfaces\ViewInterface as View;
+use Slimworks\Interfaces\Auth\CsrfGuardInterface as Csrf;
+use Slimworks\Auth\CsrfGuard;
+use Slimworks\Interfaces\ViewInterface as View;
 
 /**
  * CsrfGuardMiddleware Middleware

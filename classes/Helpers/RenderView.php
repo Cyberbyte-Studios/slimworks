@@ -10,13 +10,13 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace Cyberworks\Helpers;
+namespace Slimworks\Helpers;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use App\Interfaces\ViewInterface as View;
-use App\Interfaces\Helpers\RenderViewInterface;
-use App\Traits\CheckAcceptTrait;
+use Slimworks\Interfaces\ViewInterface as View;
+use Slimworks\Interfaces\Helpers\RenderViewInterface;
+use Slimworks\Traits\CheckAcceptTrait;
 
 /**
  * RenderView

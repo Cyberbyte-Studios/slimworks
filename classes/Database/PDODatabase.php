@@ -10,10 +10,10 @@
  * @link      https://github.com/nisbeti/slim-phpdi-starter
  */
 
-namespace Cyberworks\Database;
+namespace Slimworks\Database;
 
 use PDO;
-use App\Interfaces\Database\DatabaseInterface;
+use Slimworks\Interfaces\Database\DatabaseInterface;
 
 /**
  * PDODatabase
