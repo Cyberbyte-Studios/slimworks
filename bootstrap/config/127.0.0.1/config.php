@@ -26,7 +26,6 @@ return [
         'cdn' => $creds['DEV']['app.cdn'],
         'css' => $creds['DEV']['app.css'],
         'js' => $creds['DEV']['app.js'],
-        'plugins' => $creds['DEV']['app.plugins'],
         'images' => $creds['DEV']['app.images'],
         'tmp' => '/tmp',
         'timezone' => 'Europe/London',

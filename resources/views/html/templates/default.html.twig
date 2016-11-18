@@ -1,23 +1,25 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   {% include 'templates/partials/head.html.twig' %}
-  <body>
-    {% include 'templates/partials/header.html.twig' %}
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-          {% block content_header %}{% endblock %}
-      </section>
+  <body class="skin-green">
+    <div class="wrapper">
+      {% include 'templates/partials/header.html.twig' %}
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            {% block content_header %}{% endblock %}
+        </section>
 
-      <!-- Main content -->
-      <section class="content">
-          {% block content %}{% endblock %}
-      </section>
-      <!-- /.content -->
+        <!-- Main content -->
+        <section class="content">
+            {% block content %}{% endblock %}
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      {% include 'templates/partials/footer.html.twig' %}
     </div>
-    <!-- /.content-wrapper -->
-    {% include 'templates/partials/footer.html.twig' %}
     {% include 'templates/partials/scripts.html.twig' %}
   </body>
 </html>
