@@ -1,0 +1,56 @@
+propel:
+    paths:
+        projectDir: database
+        schemaDir: database/schema
+        outputDir: database
+        phpDir: classes
+        phpConfDir: database
+        migrationDir: database/migrations
+        sqlDir: database/sql
+
+    database:
+        connections:
+            slimworks:
+                adapter: sqlite
+                dsn: sqlite:database/slimworks.sqlite3
+                user: armalife
+                password: armalife
+                settings:
+                    charset: utf8
+
+            armalife:
+                adapter: mysql
+                dsn: mysql:host=172.22.0.2;port=3306;dbname=armalife
+                user: armalife
+                password: armalife
+                settings:
+                    charset: utf8
+
+            exile:
+                adapter: mysql
+                dsn: mysql:host=172.22.0.2;port=3306;dbname=armalife
+                user: armalife
+                password: armalife
+                settings:
+                    charset: utf8
+
+    runtime:
+        log:
+            defaultLogger:
+                type: stream
+                path: logs/propel.log
+                level: 300
+
+    runtime:
+        defaultConnection: slimworks
+        connections:
+            - slimworks
+            - armalife
+            - exile
+
+    generator:
+        defaultConnection: slimworks
+        connections:
+            - slimworks
+            - armalife
+            - exile

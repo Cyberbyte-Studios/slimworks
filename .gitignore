@@ -8,3 +8,5 @@ dev_secrets.json
 phpunit.phar
 tests/_output/*
 .idea
+propel.yml
+database/slimworks.sqlite3
