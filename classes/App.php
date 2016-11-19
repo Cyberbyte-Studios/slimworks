@@ -168,16 +168,6 @@ class App extends \DI\Bridge\Slim\App
             },
             'flash' => \DI\get(FlashInterface::class),
 
-            DatabaseInterface::class => function () {
-                return new PropelDatabase();
-            },
-            'appDb' => \DI\get(DatabaseInterface::class),
-
-            DatabaseInterface::class => function () {
-                return new PropelDatabase();
-            },
-            'armaDb' => \DI\get(DatabaseInterface::class),
-
             ConfigInterface::class => function () {
                 return $this->config;
             },

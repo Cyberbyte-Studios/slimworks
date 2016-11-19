@@ -73,7 +73,7 @@ $app = new App($config);
 
 $container = $app->getContainer();
 
-require 'database.php';
+require INC_ROOT . '/database/config.php';
 require 'routes.php';
 
 $app
