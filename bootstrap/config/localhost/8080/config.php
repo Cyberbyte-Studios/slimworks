@@ -24,9 +24,9 @@ return [
             'cost' => 10
         ],
         'cdn' => 'http://localhost:' . $_SERVER['SERVER_PORT'],
-        'css' => '/css',
-        'js' => '/js',
-        'images' => '/img',
+        'css' => $creds['DEV']['app.css'],
+        'js' => $creds['DEV']['app.js'],
+        'images' => $creds['DEV']['app.images'],
         'tmp' => '/tmp',
         'timezone' => 'Europe/London',
     ],

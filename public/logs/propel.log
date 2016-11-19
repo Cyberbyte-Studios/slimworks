@@ -3,3 +3,4 @@
 [2016-11-19 13:47:55] defaultLogger.ERROR: SQLSTATE[HY000]: General error: 1 no such column: users.id [] []
 [2016-11-19 13:47:56] defaultLogger.ERROR: SQLSTATE[HY000]: General error: 1 no such column: users.id [] []
 [2016-11-19 13:47:56] defaultLogger.ERROR: SQLSTATE[HY000]: General error: 1 no such column: users.id [] []
+[2016-11-19 16:29:37] defaultLogger.ERROR: SQLSTATE[HY000]: General error: 1 table users has no column named name [] []

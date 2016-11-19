@@ -59,7 +59,7 @@ class UserTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 7;
+    const NUM_COLUMNS = 4;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class UserTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 7;
+    const NUM_HYDRATE_COLUMNS = 4;
 
     /**
      * the column name for the id field
@@ -82,29 +82,14 @@ class UserTableMap extends TableMap
     const COL_STEAMID = 'users.steamid';
 
     /**
-     * the column name for the first_name field
+     * the column name for the name field
      */
-    const COL_FIRST_NAME = 'users.first_name';
+    const COL_NAME = 'users.name';
 
     /**
-     * the column name for the last_name field
+     * the column name for the avatar field
      */
-    const COL_LAST_NAME = 'users.last_name';
-
-    /**
-     * the column name for the username field
-     */
-    const COL_USERNAME = 'users.username';
-
-    /**
-     * the column name for the email field
-     */
-    const COL_EMAIL = 'users.email';
-
-    /**
-     * the column name for the password field
-     */
-    const COL_PASSWORD = 'users.password';
+    const COL_AVATAR = 'users.avatar';
 
     /**
      * The default string format for model objects of the related table
@@ -118,11 +103,11 @@ class UserTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Id', 'Steamid', 'FirstName', 'LastName', 'Username', 'Email', 'Password', ),
-        self::TYPE_CAMELNAME     => array('id', 'steamid', 'firstName', 'lastName', 'username', 'email', 'password', ),
-        self::TYPE_COLNAME       => array(UserTableMap::COL_ID, UserTableMap::COL_STEAMID, UserTableMap::COL_FIRST_NAME, UserTableMap::COL_LAST_NAME, UserTableMap::COL_USERNAME, UserTableMap::COL_EMAIL, UserTableMap::COL_PASSWORD, ),
-        self::TYPE_FIELDNAME     => array('id', 'steamid', 'first_name', 'last_name', 'username', 'email', 'password', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
+        self::TYPE_PHPNAME       => array('Id', 'SteamId', 'Name', 'Avatar', ),
+        self::TYPE_CAMELNAME     => array('id', 'steamId', 'name', 'avatar', ),
+        self::TYPE_COLNAME       => array(UserTableMap::COL_ID, UserTableMap::COL_STEAMID, UserTableMap::COL_NAME, UserTableMap::COL_AVATAR, ),
+        self::TYPE_FIELDNAME     => array('id', 'steamid', 'name', 'avatar', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, )
     );
 
     /**
@@ -132,11 +117,11 @@ class UserTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Id' => 0, 'Steamid' => 1, 'FirstName' => 2, 'LastName' => 3, 'Username' => 4, 'Email' => 5, 'Password' => 6, ),
-        self::TYPE_CAMELNAME     => array('id' => 0, 'steamid' => 1, 'firstName' => 2, 'lastName' => 3, 'username' => 4, 'email' => 5, 'password' => 6, ),
-        self::TYPE_COLNAME       => array(UserTableMap::COL_ID => 0, UserTableMap::COL_STEAMID => 1, UserTableMap::COL_FIRST_NAME => 2, UserTableMap::COL_LAST_NAME => 3, UserTableMap::COL_USERNAME => 4, UserTableMap::COL_EMAIL => 5, UserTableMap::COL_PASSWORD => 6, ),
-        self::TYPE_FIELDNAME     => array('id' => 0, 'steamid' => 1, 'first_name' => 2, 'last_name' => 3, 'username' => 4, 'email' => 5, 'password' => 6, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
+        self::TYPE_PHPNAME       => array('Id' => 0, 'SteamId' => 1, 'Name' => 2, 'Avatar' => 3, ),
+        self::TYPE_CAMELNAME     => array('id' => 0, 'steamId' => 1, 'name' => 2, 'avatar' => 3, ),
+        self::TYPE_COLNAME       => array(UserTableMap::COL_ID => 0, UserTableMap::COL_STEAMID => 1, UserTableMap::COL_NAME => 2, UserTableMap::COL_AVATAR => 3, ),
+        self::TYPE_FIELDNAME     => array('id' => 0, 'steamid' => 1, 'name' => 2, 'avatar' => 3, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, )
     );
 
     /**
@@ -157,12 +142,9 @@ class UserTableMap extends TableMap
         $this->setUseIdGenerator(true);
         // columns
         $this->addPrimaryKey('id', 'Id', 'INTEGER', true, null, null);
-        $this->addColumn('steamid', 'Steamid', 'INTEGER', false, null, null);
-        $this->addColumn('first_name', 'FirstName', 'VARCHAR', false, 50, null);
-        $this->addColumn('last_name', 'LastName', 'VARCHAR', false, 50, null);
-        $this->addColumn('username', 'Username', 'VARCHAR', false, 50, null);
-        $this->addColumn('email', 'Email', 'VARCHAR', false, 100, null);
-        $this->addColumn('password', 'Password', 'VARCHAR', false, 100, null);
+        $this->addColumn('steamid', 'SteamId', 'INTEGER', false, null, null);
+        $this->addColumn('name', 'Name', 'VARCHAR', false, 50, null);
+        $this->addColumn('avatar', 'Avatar', 'VARCHAR', false, 50, null);
     } // initialize()
 
     /**
@@ -315,19 +297,13 @@ class UserTableMap extends TableMap
         if (null === $alias) {
             $criteria->addSelectColumn(UserTableMap::COL_ID);
             $criteria->addSelectColumn(UserTableMap::COL_STEAMID);
-            $criteria->addSelectColumn(UserTableMap::COL_FIRST_NAME);
-            $criteria->addSelectColumn(UserTableMap::COL_LAST_NAME);
-            $criteria->addSelectColumn(UserTableMap::COL_USERNAME);
-            $criteria->addSelectColumn(UserTableMap::COL_EMAIL);
-            $criteria->addSelectColumn(UserTableMap::COL_PASSWORD);
+            $criteria->addSelectColumn(UserTableMap::COL_NAME);
+            $criteria->addSelectColumn(UserTableMap::COL_AVATAR);
         } else {
             $criteria->addSelectColumn($alias . '.id');
             $criteria->addSelectColumn($alias . '.steamid');
-            $criteria->addSelectColumn($alias . '.first_name');
-            $criteria->addSelectColumn($alias . '.last_name');
-            $criteria->addSelectColumn($alias . '.username');
-            $criteria->addSelectColumn($alias . '.email');
-            $criteria->addSelectColumn($alias . '.password');
+            $criteria->addSelectColumn($alias . '.name');
+            $criteria->addSelectColumn($alias . '.avatar');
         }
     }
 

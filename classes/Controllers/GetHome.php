@@ -7,25 +7,10 @@ namespace Slimworks\Controllers;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-// use Slim\Interfaces\RouterInterface as Router;
 use Slimworks\Interfaces\ViewInterface as View;
 use Slimworks\Helpers\RenderView;
-// use Noodlehaus\ConfigInterface as Config;
-// use Slimworks\Interfaces\Helpers\SessionInterface as Session;
 use Slimworks\Interfaces\Helpers\FlashInterface as Flash;
-// use Psr\Log\LoggerInterface as Logger;
 
-/**
- * GetHome Controller
- *
- * @param  \Psr\Http\Message\ServerRequestInterface $request    PSR7 request
- * @param  \Psr\Http\Message\ResponseInterface      $response   PSR7 response
- * @param  Slimworks\Interfaces\ViewInterface       $view       e.g. Slim\Views\Twig
- * @param  Slimworks\Interfaces\FlashInterface      $flash      e.g. Slim\Flash\Messages
- *
- * @return HTTP response message
- *
- */
 class GetHome
 {
     public function __invoke(

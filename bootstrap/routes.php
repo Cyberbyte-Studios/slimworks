@@ -5,7 +5,8 @@
 
 $app->get('/', \Slimworks\Controllers\GetHome::class)->setName('home');
 $app->get('/dash', \Slimworks\Controllers\Dashboard::class)->setName('dashboard');
-$app->get('/login', \Slimworks\Controllers\Auth::class)->setName('login');
+$app->get('/login', \Slimworks\Controllers\Auth\GetLogin::class)->setName('login');
+$app->get('/steam', \Slimworks\Controllers\Auth\SteamController::class)->setName('steam');
 
 
 $app->get('/test/csrf', \Slimworks\Controllers\GetTestCsrf::class)->setName('test.csrf');

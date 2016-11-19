@@ -2,12 +2,9 @@
 <database name="slimworks" defaultIdMethod="native" defaultPhpNamingMethod="underscore" namespace="Slimworks\Models\Core">
   <table name="users" idMethod="native" phpName="User">
     <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true"/>
-    <column name="steamid" phpName="Steamid" type="INTEGER"/>
-    <column name="first_name" phpName="FirstName" type="VARCHAR" size="50"/>
-    <column name="last_name" phpName="LastName" type="VARCHAR" size="50"/>
-    <column name="username" phpName="Username" type="VARCHAR" size="50"/>
-    <column name="email" phpName="Email" type="VARCHAR" size="100"/>
-    <column name="password" phpName="Password" type="VARCHAR" size="100"/>
+    <column name="steamid" phpName="SteamId" type="INTEGER"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="50"/>
+    <column name="avatar" phpName="Avatar" type="VARCHAR" size="50"/>
     <unique name="users_steamid_uindex">
       <unique-column name="steamid"/>
     </unique>
