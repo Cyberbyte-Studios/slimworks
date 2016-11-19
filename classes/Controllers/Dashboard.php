@@ -12,7 +12,6 @@ use Slimworks\Interfaces\ViewInterface as View;
 use Slimworks\Helpers\RenderView;
 // use Noodlehaus\ConfigInterface as Config;
 // use Slimworks\Interfaces\Helpers\SessionInterface as Session;
-use Slimworks\Interfaces\Database\DatabaseInterface as DB;
 use Slimworks\Interfaces\Helpers\FlashInterface as Flash;
 // use Psr\Log\LoggerInterface as Logger;
 
@@ -33,7 +32,6 @@ class Dashboard
         Request $request,
         Response $response,
         View $view,
-        DB $db,
         Flash $flash
     ) {
         return new RenderView($request, $response, $view, 'life/dashboard/content', [
