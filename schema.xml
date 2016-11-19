@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" namespace="Cyberworks\Models" defaultPhpNamingMethod="underscore">
+    <table name="containers" idMethod="native" phpName="Containers">
+        <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="pid" phpName="Pid" type="VARCHAR" size="32" primaryKey="true" required="true"/>
+        <column name="classname" phpName="Classname" type="VARCHAR" size="32" required="true"/>
+        <column name="pos" phpName="Pos" type="VARCHAR" size="64"/>
+        <column name="inventory" phpName="Inventory" type="LONGVARCHAR" required="true"/>
+        <column name="gear" phpName="Gear" type="LONGVARCHAR" required="true"/>
+        <column name="dir" phpName="Dir" type="VARCHAR" size="128"/>
+        <column name="active" phpName="Active" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="owned" phpName="Owned" type="BOOLEAN" size="1" defaultValue="false"/>
+        <column name="insert_time" phpName="InsertTime" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+    <table name="gangs" idMethod="native" phpName="Gangs">
+        <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="owner" phpName="Owner" type="VARCHAR" size="32"/>
+        <column name="name" phpName="Name" type="VARCHAR" size="32"/>
+        <column name="members" phpName="Members" type="LONGVARCHAR"/>
+        <column name="maxmembers" phpName="Maxmembers" type="INTEGER" size="3" defaultValue="8"/>
+        <column name="bank" phpName="Bank" type="INTEGER" size="100" defaultValue="0"/>
+        <column name="active" phpName="Active" type="BOOLEAN" size="1" defaultValue="true"/>
+        <column name="insert_time" phpName="InsertTime" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+        <unique name="name_UNIQUE">
+            <unique-column name="name"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+    <table name="houses" idMethod="native" phpName="Houses">
+        <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="pid" phpName="Pid" type="VARCHAR" size="32" primaryKey="true" required="true"/>
+        <column name="pos" phpName="Pos" type="VARCHAR" size="64"/>
+        <column name="owned" phpName="Owned" type="BOOLEAN" size="1" defaultValue="false"/>
+        <column name="garage" phpName="Garage" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="insert_time" phpName="InsertTime" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+    <table name="players" idMethod="native" phpName="Players">
+        <column name="uid" phpName="Uid" type="INTEGER" size="12" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="name" phpName="Name" type="VARCHAR" size="32" required="true"/>
+        <column name="aliases" phpName="Aliases" type="LONGVARCHAR" required="true"/>
+        <column name="playerid" phpName="Playerid" type="VARCHAR" size="64" required="true"/>
+        <column name="cash" phpName="Cash" type="INTEGER" size="100" required="true" defaultValue="0"/>
+        <column name="bankacc" phpName="Bankacc" type="INTEGER" size="100" required="true" defaultValue="0"/>
+        <column name="coplevel" phpName="Coplevel" type="CHAR" sqlType="enum('0','1','2','3','4','5','6','7')" required="true" defaultValue="0"/>
+        <column name="mediclevel" phpName="Mediclevel" type="CHAR" sqlType="enum('0','1','2','3','4','5')" required="true" defaultValue="0"/>
+        <column name="civ_licenses" phpName="CivLicenses" type="LONGVARCHAR" required="true"/>
+        <column name="cop_licenses" phpName="CopLicenses" type="LONGVARCHAR" required="true"/>
+        <column name="med_licenses" phpName="MedLicenses" type="LONGVARCHAR" required="true"/>
+        <column name="civ_gear" phpName="CivGear" type="LONGVARCHAR" required="true"/>
+        <column name="cop_gear" phpName="CopGear" type="LONGVARCHAR" required="true"/>
+        <column name="med_gear" phpName="MedGear" type="LONGVARCHAR" required="true"/>
+        <column name="civ_stats" phpName="CivStats" type="VARCHAR" size="32" required="true" defaultValue="&quot;[100,100,0]&quot;"/>
+        <column name="cop_stats" phpName="CopStats" type="VARCHAR" size="32" required="true" defaultValue="&quot;[100,100,0]&quot;"/>
+        <column name="med_stats" phpName="MedStats" type="VARCHAR" size="32" required="true" defaultValue="&quot;[100,100,0]&quot;"/>
+        <column name="arrested" phpName="Arrested" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="adminlevel" phpName="Adminlevel" type="CHAR" sqlType="enum('0','1','2','3','4','5')" required="true" defaultValue="0"/>
+        <column name="donorlevel" phpName="Donorlevel" type="CHAR" sqlType="enum('0','1','2','3','4','5')" required="true" defaultValue="0"/>
+        <column name="blacklist" phpName="Blacklist" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="civ_alive" phpName="CivAlive" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="civ_position" phpName="CivPosition" type="VARCHAR" size="64" required="true" defaultValue="&quot;[]&quot;"/>
+        <column name="playtime" phpName="Playtime" type="VARCHAR" size="32" required="true" defaultValue="&quot;[0,0,0]&quot;"/>
+        <column name="insert_time" phpName="InsertTime" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+        <column name="last_seen" phpName="LastSeen" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+        <index name="name">
+            <index-column name="name"/>
+        </index>
+        <index name="blacklist">
+            <index-column name="blacklist"/>
+        </index>
+        <unique name="playerid">
+            <unique-column name="playerid"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+    <table name="vehicles" idMethod="native" phpName="Vehicles">
+        <column name="id" phpName="Id" type="INTEGER" size="12" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="side" phpName="Side" type="VARCHAR" size="16" required="true"/>
+        <column name="classname" phpName="Classname" type="VARCHAR" size="64" required="true"/>
+        <column name="type" phpName="Type" type="VARCHAR" size="16" required="true"/>
+        <column name="pid" phpName="Pid" type="VARCHAR" size="32" required="true"/>
+        <column name="alive" phpName="Alive" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
+        <column name="blacklist" phpName="Blacklist" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="active" phpName="Active" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="plate" phpName="Plate" type="VARCHAR" size="64" required="true"/>
+        <column name="plateString" phpName="Platestring" type="VARCHAR" size="64" required="true"/>
+        <column name="color" phpName="Color" type="INTEGER" size="20" required="true"/>
+        <column name="inventory" phpName="Inventory" type="LONGVARCHAR" required="true"/>
+        <column name="gear" phpName="Gear" type="LONGVARCHAR" required="true"/>
+        <column name="fuel" phpName="Fuel" type="DOUBLE" required="true" defaultValue="1"/>
+        <column name="damage" phpName="Damage" type="VARCHAR" size="256" required="true"/>
+        <column name="insert_time" phpName="InsertTime" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+        <index name="side">
+            <index-column name="side"/>
+        </index>
+        <index name="pid">
+            <index-column name="pid"/>
+        </index>
+        <index name="type">
+            <index-column name="type"/>
+        </index>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+    <table name="wanted" idMethod="native" phpName="Wanted">
+        <column name="wantedID" phpName="Wantedid" type="VARCHAR" size="64" primaryKey="true" required="true"/>
+        <column name="wantedName" phpName="Wantedname" type="VARCHAR" size="32" required="true"/>
+        <column name="wantedCrimes" phpName="Wantedcrimes" type="LONGVARCHAR" required="true"/>
+        <column name="wantedBounty" phpName="Wantedbounty" type="INTEGER" size="100" required="true"/>
+        <column name="active" phpName="Active" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="insert_time" phpName="InsertTime" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+</database>

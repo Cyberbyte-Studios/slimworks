@@ -10,3 +10,5 @@ tests/_output/*
 .idea
 propel.yml
 database/slimworks.sqlite3
+composer.phar
+php.lnk
