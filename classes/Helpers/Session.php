@@ -7,6 +7,8 @@ namespace Slimworks\Helpers;
 
 use Slimworks\Interfaces\Helpers\SessionInterface;
 use Noodlehaus\ConfigInterface;
+use Slimworks\Models\Core\User;
+use Slimworks\Models\Core\UserQuery;
 
 /**
  * Session
@@ -77,5 +79,14 @@ class Session implements SessionInterface
     public function destroy()
     {
         session_destroy();
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        $query = new UserQuery();
+        return $query->findOneById($this->get('userId'));
     }
 }

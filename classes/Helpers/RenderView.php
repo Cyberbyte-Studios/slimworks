@@ -30,10 +30,17 @@ class RenderView implements RenderViewInterface
     ) {
         $contentType = $this->determineContentType($request);
         switch ($contentType) {
-
             case 'text/html':
+                $data = $this->viewGlobals($data);
                 return $view->render($response, $template . '.html.twig', $data);
                 break;
         }
+    }
+
+    private function viewGlobals(array $data)
+    {
+        $session = new Session();
+        $data['user'] = $session->getUser();
+        return $data;
     }
 }

@@ -7,9 +7,11 @@ namespace Slimworks\Services\Auth\Social\Steam;
 
 use LightOpenID;
 use Slimworks\Exceptions\InvalidConfigurationException;
+use Slimworks\Models\ArmaLife\PlayerQuery;
 use Slimworks\Models\Core\User;
 use Http\Adapter\Guzzle6\Client;
 use Slimworks\Exceptions\AuthException;
+use Slimworks\Models\Core\UserQuery;
 
 class SteamService
 {
@@ -56,6 +58,11 @@ class SteamService
             throw new AuthException('No player ID found');
         }
 
+        $user = UserQuery::create()->findOneBySteamId($this->playerId);
+        if (isset($user)) {
+            return $user;
+        }
+
         $request = new \GuzzleHttp\Psr7\Request('GET', $this->getProfileUrl($this->playerId));
         $httpClient = new Client();
         $response = $httpClient->sendRequest($request);
@@ -67,10 +74,10 @@ class SteamService
         $content = json_decode($response->getBody());
         $player = $content->response->players[0];
 
-        $user = new User();
+        $user = new User;
         $user->setSteamId($this->playerId);
         $user->setName($player->personaname);
-        $user->setAvatar($player->avatar);
+        $user->setAvatar($player->avatarfull);
         $user->save();
 
         return $user;

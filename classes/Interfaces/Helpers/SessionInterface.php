@@ -26,4 +26,6 @@ interface SessionInterface
     public function regenerate();
 
     public function destroy();
+
+    public function getUser();
 }

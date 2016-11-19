@@ -6,6 +6,7 @@
 $app->get('/', \Slimworks\Controllers\GetHome::class)->setName('home');
 $app->get('/dash', \Slimworks\Controllers\Dashboard::class)->setName('dashboard');
 $app->get('/login', \Slimworks\Controllers\Auth\GetLogin::class)->setName('login');
+$app->get('/logout', \Slimworks\Controllers\Auth\GetLogout::class)->setName('logout');
 $app->get('/steam', \Slimworks\Controllers\Auth\SteamController::class)->setName('steam');
 
 

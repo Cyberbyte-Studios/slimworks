@@ -6,7 +6,7 @@
 
 namespace Slimworks\Controllers\Auth;
 
-use Slim\Http\Response as Response;
+use Slim\Http\Response;
 use Slim\Interfaces\RouterInterface;
 use Slimworks\Interfaces\Helpers\FlashInterface;
 use Slimworks\Interfaces\Helpers\SessionInterface;
